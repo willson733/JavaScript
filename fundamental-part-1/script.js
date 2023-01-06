@@ -226,4 +226,72 @@ if(favNum!==23){
 
 */
 
-// logical operation
+/*
+// switch statement 
+const day='thursday';
+switch(day){
+    case 'monday':
+        console.log('Plan course structure');
+        console.log('Go to cooding meetup');
+        break;
+    case 'tuesday':
+        console.log('prepare theory videos');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('Write a code examples');
+        break;
+    case 'friday':
+        console.log('Record video');
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('Enjoy the weekand!!!');
+        break;
+    default:
+        console.log('Invalid day');
+
+
+}
+
+if(day==='monday'){
+    console.log('plan course structure');
+    console.log('Go to cooding meetup');
+}
+else if(day==='tuesday'){
+    console.log('prepare theory video');
+}
+else if(day==='wednesday' || day==='thursday'){
+    console.log('Write a code example');
+
+}
+else if(day==='friday'){
+    console.log('Record a video');
+}
+else if(day==='saturday' || day==='sunday'){
+    console.log('Enjoy the day!!');
+}
+else{
+    console.log('Invalid day');
+}
+*/
+
+/*
+// conditional tertry operator
+
+const age=33;
+// age>=18? console.log(`I like to drink wine`):console.log(`I like to drink water`);
+const drink=age>=18? 'wine':'water';
+console.log(drink);
+
+let drink2;
+if(age>=18){
+    drink2='wine'
+}
+else{
+
+    drink2='water';
+}
+console.log(drink2);
+console.log(`I like to drink ${age>=18? 'wine':'water'}`);
+*/
