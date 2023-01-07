@@ -61,3 +61,73 @@ const age2=calcAge1(2000)
 
 console.log(age1, age2);
 */
+
+/*
+
+// Arrow function 
+
+const calcAge3=birthYear=> 2023-birthYear;
+age3=calcAge3(2000)
+console.log(age3);
+
+
+const yearUntilRetirement=(birthYear, firstName)=>{
+    const age=2023-birthYear;
+    const retirement=58-age;
+    return `${firstName} retires in ${retirement} years`
+}
+console.log(yearUntilRetirement(2000,'willson'));
+*/
+
+/*
+// function calling other function 
+
+function cutFruitPieces(fruit) {
+    return fruit*4;
+}
+
+function fruitProcessor(apple,orange) {
+    const applePieces=cutFruitPieces(apple); //function calling anothe function
+    const orangePieces=cutFruitPieces(orange);
+    const juice=`Juice with ${applePieces} apple piece and ${orangePieces} orange piece`;
+    return juice;
+}
+console.log(fruitProcessor(4,6));
+*/
+
+// arrays
+
+
+const names=['willson', 'bishal','loveson'];
+console.log(names);
+
+const num=[22,334,66,444]
+console.log(num);
+
+console.log(names[0]);
+console.log(names.length);
+
+names[2]='anil';
+console.log(names);
+
+const firstName='willson'
+const willson=[firstName, 'Ghimire',2023-2000,names]
+console.log(willson);
+
+// exercise
+
+const calcAge1=function(birthYear){
+    return 2023-birthYear;
+}
+const years=[1980,1999,2000,2010];
+
+const age1=calcAge1(years[0]);
+const age2=calcAge1(years[1]);
+const age3=calcAge1(years[years.length-1])
+
+
+
+console.log(age1,age2,age3)
+const ages=[calcAge1(years[0]),calcAge1(years[1]),calcAge1(years[years.length-1])]
+
+console.log(ages);
