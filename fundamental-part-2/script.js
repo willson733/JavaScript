@@ -225,6 +225,7 @@ for (let i=1;i<=10;i++){
 }
 */
 
+/*
 // looping array breaking and continue 
 
 const willson= [
@@ -252,4 +253,25 @@ for(let i=0;i<willson.length;i++){
     if (typeof willson[i]==='number') break;
     console.log(willson[i] ,typeof willson[i] );
     
+}
+*/
+
+// backward looping and loop inside loop 
+
+const willson= [
+    'willson',
+    'ghimre',
+    2023-2000,
+    true,
+    ['anil','suman','krishna']
+]
+for(let i=willson.length-1;i>=0;i--){
+    console.log(willson[i]);
+}
+
+for(let exercise=1;exercise<4;exercise++){
+    console.log(`-------exercise ${exercise}`);
+    for (let rep=1;rep<6;rep++){
+        console.log(`weight lifting reputation ${rep}`);
+    }
 }
