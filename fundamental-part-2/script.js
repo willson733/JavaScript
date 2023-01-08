@@ -95,6 +95,8 @@ function fruitProcessor(apple,orange) {
 console.log(fruitProcessor(4,6));
 */
 
+/*
+
 // arrays
 
 
@@ -131,3 +133,123 @@ console.log(age1,age2,age3)
 const ages=[calcAge1(years[0]),calcAge1(years[1]),calcAge1(years[years.length-1])]
 
 console.log(ages);
+*/
+
+/*
+// Object 
+
+const willson{
+    firstName='willson';
+    lastName='ghimire';
+    age=2023-2000;
+    job='teacher';
+    friends=['anil','suman','krishna'];
+
+}
+*/
+/*
+
+// dot vs bracket notation
+
+const willson= {
+    firstName:'willson',
+    lastName:'ghimire',
+    age:2023-2000,
+    job:'teacher',
+    friends:['anil','suman','krishna'],
+
+}
+console.log(willson.lastName);
+
+console.log(willson['firstName']);
+
+const namekey="Name";
+console.log(willson['first'+namekey]);
+
+const willsonInfo=prompt(`what do you want to know about willson?firstName,lastName,age,job,friends`);
+if (willson[willsonInfo]){
+
+    console.log(willson[willsonInfo]);
+}
+else{
+    console.log(`Invalid input! what do you want to know about willson?firstName,lastName,age,job,friends`);
+}
+
+
+console.log(`${willson.firstName} has friends ${willson.friends.length}, and his best friend name is ${willson['friends'][0]}`);
+*/
+
+/*
+// object method 
+
+
+const willson= {
+    firstName:'willson',
+    lastName:'ghimire',
+    birthYear:2000,
+    job:'teacher',
+    friends:['anil','suman','krishna'],
+    hasDrivingLicence:false,
+
+// calcAge:function(birthYear){
+//     return 2023-birthYear;
+
+     calcAge:function () {
+    // console.log(this)
+    this.age=2023-this.birthYear;
+    return this.age;
+     },
+
+    getSummery:function(){
+        return `${this.firstName} is a ${this.calcAge()} old ${this.job} and he has ${this.hasDrivingLicence? 'a':'no'} driving licencee`;
+
+    }
+
+
+}
+
+
+console.log(willson.calcAge());
+console.log(willson.age);
+console.log(willson.age);
+
+
+console.log(willson.getSummery())
+*/
+
+
+// iteration the for loop 
+/*
+for (let i=1;i<=10;i++){
+    console.log(`the number is printed ${i} times`);
+}
+*/
+
+// looping array breaking and continue 
+
+const willson= [
+    'willson',
+    'ghimre',
+    2023-2000,
+    true,
+    ['anil','suman','krishna']
+]
+const types=[];
+for(let i=0;i<willson.length;i++){
+    console.log(willson[i] ,typeof willson[i] );
+    types.push(typeof willson[i])
+}
+console.log(types);
+
+// continue and breaking 
+
+for(let i=0;i<willson.length;i++){
+    if (typeof willson[i]!=='string') continue;
+    console.log(willson[i] ,typeof willson[i] );
+    
+}
+for(let i=0;i<willson.length;i++){
+    if (typeof willson[i]==='number') break;
+    console.log(willson[i] ,typeof willson[i] );
+    
+}
