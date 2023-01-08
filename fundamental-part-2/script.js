@@ -255,7 +255,7 @@ for(let i=0;i<willson.length;i++){
     
 }
 */
-
+/*
 // backward looping and loop inside loop 
 
 const willson= [
@@ -272,6 +272,26 @@ for(let i=willson.length-1;i>=0;i--){
 for(let exercise=1;exercise<4;exercise++){
     console.log(`-------exercise ${exercise}`);
     for (let rep=1;rep<6;rep++){
-        console.log(`weight lifting reputation ${rep}`);
+        console.log(`weight lifting repetation ${rep}`);
     }
 }
+*/
+
+/*
+// The while looop 
+
+let rep=1;
+while(rep!=5){
+    console.log(`weight lifting repetation ${rep}`);
+    rep++;
+}
+
+
+// roll a dice 
+let dice=Math.trunc(Math.random() *6)+1
+while (dice!==6){
+    console.log(`your rolled ${dice}`)
+    dice=Math.trunc(Math.random() *6)+1;
+    if (dice===6) console.log(`it is about to end`);
+}
+*/
