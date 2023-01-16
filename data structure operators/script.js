@@ -11,6 +11,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -29,7 +30,21 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderDelevery: function ({
+    starterIndex = 0,
+    time = `1:20`,
+    mainIndex = 0,
+    address = 'dharan',
+  }) {
+    console.log(
+      `order ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} received at ${address} at time ${time}`
+    );
+  },
 };
+
+/*
+// destructuring array
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
 
@@ -43,3 +58,42 @@ const [first, , third] = nested;
 console.log(first, third);
 const [i, , [j, k]] = nested;
 console.log(i, j, k);
+*/
+// Destructuring object
+const { name, openingHours, starterMenu } = restaurant;
+console.log(name, openingHours, starterMenu);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  starterMenu: starter,
+} = restaurant;
+console.log(restaurantName, hours, starter);
+
+// default value
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating variables
+let a = 3;
+let b = 5;
+const obj = { a: 33, b: 44, c: 22 };
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested abject
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+// function call
+restaurant.orderDelevery({
+  time: `20:20`,
+  address: `Dharan`,
+  starterIndex: 2,
+  mainIndex: 1,
+});
+restaurant.orderDelevery({
+  address: 'Ithari',
+});
