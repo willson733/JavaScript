@@ -44,6 +44,9 @@ const restaurant = {
   orderPizza: function (ing1, ing2, ing3) {
     console.log(`Here is your pizza with ${ing1}, ${ing2} and ${ing3}`);
   },
+  orderPasta: function (mainIndregient, ...others) {
+    console.log(mainIndregient, others);
+  },
 };
 
 /*
@@ -104,6 +107,7 @@ restaurant.orderDelevery({
 });
 */
 
+/*
 // Spread operator
 const arr = [2, 4, 5, 7];
 const badNewArr = [1, 3, arr[0], arr[1], arr[2], arr[3]];
@@ -142,3 +146,39 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'chill restro';
 console.log(restaurant.name);
 console.log(restaurantCopy.name);
+*/
+
+// Rest pattern and parameter
+
+// Spread because on right side of =
+const arr = [2, 4, ...[5, 6]];
+
+// Rest because on lef side of =
+const [a, b, ...others] = [1, 2, 4, 5, 6, 8];
+console.log(a, b, others);
+
+const [Focaccia, Bruschetta, ...otherfood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(Focaccia, Bruschetta, otherfood);
+
+// object
+const { sat, ...weekday } = restaurant.openingHours;
+console.log(weekday);
+
+// Function
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 5);
+add(3, 4, 5, 6, 3);
+add(3, 5, 7, 9);
+
+const x = [3, 4, 5];
+add(...x);
+
+restaurant.orderPasta('onion', 'oliva', 'cheese');
