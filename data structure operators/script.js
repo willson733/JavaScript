@@ -148,6 +148,7 @@ console.log(restaurant.name);
 console.log(restaurantCopy.name);
 */
 
+/*
 // Rest pattern and parameter
 
 // Spread because on right side of =
@@ -182,3 +183,29 @@ const x = [3, 4, 5];
 add(...x);
 
 restaurant.orderPasta('onion', 'oliva', 'cheese');
+*/
+
+// Short circuting
+console.log('------AND----');
+console.log(3 || 'willson');
+console.log('' || 'willson');
+console.log(undefined || 3);
+console.log(undefined || null);
+console.log(undefined || '' || 0 || 'true' || null);
+
+restaurant.guest = 10;
+const guest1 = restaurant.guest ? restaurant.guest : 20;
+console.log(guest1);
+
+const guest2 = restaurant.guest || 20;
+console.log(guest2);
+
+console.log('----OR----');
+console.log(3 && 0);
+console.log('willson' && 'ghimire');
+
+// practical example
+if (restaurant.orderPasta) {
+  restaurant.orderPasta('mushroom', 'onion');
+}
+restaurant.orderPasta && restaurant.orderPasta('mushroom', 'onion');
