@@ -41,6 +41,9 @@ const restaurant = {
       `order ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} received at ${address} at time ${time}`
     );
   },
+  orderPizza: function (ing1, ing2, ing3) {
+    console.log(`Here is your pizza with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
 /*
@@ -59,6 +62,8 @@ console.log(first, third);
 const [i, , [j, k]] = nested;
 console.log(i, j, k);
 */
+
+/*
 // Destructuring object
 const { name, openingHours, starterMenu } = restaurant;
 console.log(name, openingHours, starterMenu);
@@ -97,3 +102,43 @@ restaurant.orderDelevery({
 restaurant.orderDelevery({
   address: 'Ithari',
 });
+*/
+
+// Spread operator
+const arr = [2, 4, 5, 7];
+const badNewArr = [1, 3, arr[0], arr[1], arr[2], arr[3]];
+console.log(badNewArr);
+const newArr = [1, 3, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// Join two array
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Iterable:Array,string,set,map:not Object
+
+const str = 'willson';
+const letter = [...str, 'g'];
+console.log(letter);
+console.log(...str);
+
+// real-world example
+const ingredient = [
+  prompt(`let's make your 1st ingrident`),
+  prompt(`let's make your 2nd ingredient`),
+  prompt(`let's make your 3rd ingrident`),
+];
+restaurant.orderPizza(...ingredient);
+
+// Object
+const newRestaurant = { foundedIn: 2000, ...restaurant, founder: 'willson' };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'chill restro';
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
