@@ -185,6 +185,7 @@ add(...x);
 restaurant.orderPasta('onion', 'oliva', 'cheese');
 */
 
+/*
 // Short circuting
 console.log('------AND----');
 console.log(3 || 'willson');
@@ -209,3 +210,153 @@ if (restaurant.orderPasta) {
   restaurant.orderPasta('mushroom', 'onion');
 }
 restaurant.orderPasta && restaurant.orderPasta('mushroom', 'onion');
+
+// Nullish: null or undefined but not (0 and '')
+restaurant.guest = 0;
+const guest3 = restaurant.guest ? restaurant.guest : 20;
+const guest4 = restaurant.guest ?? 20;
+console.log(guest3);
+console.log(guest4);
+*/
+
+/*
+
+const res1 = {
+  name: 'chill restro',
+  // numGuest: 20,
+  numGuest: 0,
+};
+const res2 = {
+  name: 'grill restro',
+  owenerName: 'willson',
+};
+// OR assignment operator
+// res1.numGuest = res1.numGuest || 10;
+// res2.numGuest = res2.numGuest || 10;
+
+// res1.numGuest ||= 10;
+// res2.numGuest ||= 10;
+
+// Nullish assignment operator (null and undefined)
+res1.numGuest ??= 10;
+res2.numGuest ??= 10;
+
+console.log(res1);
+console.log(res2);
+
+// AND assignment operator
+res1.owenerName &&= `<ANANYMOUS>`;
+res2.owenerName &&= `<ANANYMOUS>`;
+console.log(res1);
+console.log(res2);
+*/
+
+/*
+// --------------- coding challange-----------
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals was scored`);
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+team1 < team2 && console.log(`team 1 is more likely to win`);
+team1 > team2 && console.log(`team 2 is more likely to win`);
+*/
+
+/*
+// for of loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const index of menu) console.log(index);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}:${el}`);
+}
+ */
+
+// Optional chaining
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+
+// with optional chainig
+console.log(restaurant.openingHours?.mon?.open);
+console.log(restaurant.openingHours?.thu?.open);
+
+const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Methods
+
+console.log(restaurant.order?.(2, 0) ?? 'Methods doesnot exist');
+console.log(restaurant.orderrestro?.(2, 0) ?? 'Methods doesnot exist');
+
+// Array
+const user = [
+  { name: 'willson', email: 'willsonghimire58@gmail.com', address: 'dharan' },
+];
+console.log(user[0]?.name ?? 'user array empty');
