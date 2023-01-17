@@ -494,6 +494,7 @@ const time = 10;
 console.log(rest.get(time > rest.get(open) && time < rest.get(close)));
 */
 
+/*
 // Map iteration
 const question = new Map([
   ['question', 'What is the best programming language'],
@@ -523,3 +524,33 @@ for (const [key, value] of question) {
 const answer = Number(prompt(question.get('question')));
 console.log(answer);
 console.log(question.get(answer === question.get('correct')));
+*/
+
+// --------------coding challange----------
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '� Yellow card'],
+]);
+console.log(gameEvents.values());
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+gameEvents.delete(64);
+console.log(`"An event happened, on 
+average, every ${90 / gameEvents.size} minutes`);
+
+for (const [key, value] of gameEvents) {
+  key < 45
+    ? console.log(`[FIRST HALF]${key}: ${value}`)
+    : console.log(`[SECOND HALF]${key}: ${value}`);
+}
