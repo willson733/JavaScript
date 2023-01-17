@@ -471,6 +471,7 @@ const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
 */
 
+/*
 // Map
 
 const rest = new Map();
@@ -491,3 +492,34 @@ console.log(rest.get(2));
 
 const time = 10;
 console.log(rest.get(time > rest.get(open) && time < rest.get(close)));
+*/
+
+// Map iteration
+const question = new Map([
+  ['question', 'What is the best programming language'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'correct'],
+  [false, 'Try again'],
+]);
+console.log(question);
+
+// Converting object to maps
+console.log(Object.entries(openingHours));
+const newHour = new Map(Object.entries(openingHours));
+console.log(newHour);
+
+// converting maps to array
+
+console.log([...question]);
+
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}:${value}`);
+}
+const answer = Number(prompt(question.get('question')));
+console.log(answer);
+console.log(question.get(answer === question.get('correct')));
