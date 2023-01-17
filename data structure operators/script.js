@@ -556,8 +556,8 @@ for (const [key, value] of gameEvents) {
     : console.log(`[SECOND HALF]${key}: ${value}`);
 }
 */
-
-// Strings
+/*
+// Strings part 1
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 console.log(plane[0]);
@@ -583,3 +583,60 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('12D');
 checkMiddleSeat('13E');
+*/
+
+// string part 2
+const airLine = 'TAP Air Portugal';
+console.log(airLine.toLocaleLowerCase());
+console.log(airLine.toUpperCase());
+
+// Fix capitalization in name
+const passanger = 'WiLLson'; //Willson
+const passangerLower = passanger.toLocaleLowerCase();
+const passangerCorrect = passangerLower[0] + passangerLower.slice(1);
+console.log(passangerCorrect);
+
+// Comparing email
+const email = 'willsonghimire58@gmail.com';
+const loginEmail = '   WillSONghimire58@Gmail.com \n';
+// const lowerEmail = loginEmail.toLocaleLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+console.log(email === normalizedEmail);
+
+// Replacing
+const priceNp = '322,34R';
+const priceUs = priceNp.replace('R', '$').replace(',', '.');
+console.log(priceUs);
+
+const announcement = 'All passanger come to bording door 33. Bording door 33!';
+console.log(announcement.replace('door', 'gate'));
+
+// console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Boolean
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Airbo'));
+console.log(plane.startsWith('Air'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLocaleLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('You are abroad');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
