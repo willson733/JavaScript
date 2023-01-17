@@ -451,6 +451,7 @@ for (const [team, odd] of Object.entries(odds)) {
 }
 */
 
+/*
 // sets
 
 const orderSet = new Set(['pizza', 'pasta', 'pizza', 'Risotto', 'pasta']);
@@ -468,3 +469,25 @@ for (const order of orderSet) console.log(order);
 const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef'];
 const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
+*/
+
+// Map
+
+const rest = new Map();
+rest.set('Name', 'Ristico');
+rest.set(1, 'Focaccia');
+rest.set(2, 'garlic bread');
+
+console.log(rest);
+rest
+  .set('category', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set(open, 11)
+  .set(close, 21)
+  .set(true, 'We are open :D')
+  .set(false, 'we are closed :)');
+
+console.log(rest.get('Name'));
+console.log(rest.get(2));
+
+const time = 10;
+console.log(rest.get(time > rest.get(open) && time < rest.get(close)));
