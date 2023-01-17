@@ -390,6 +390,7 @@ for (const [key, { open, close }] of entries) {
 }
 */
 
+/*
 // --------------- coding challange-----------
 const odds = {
   team1: 1.3,
@@ -448,3 +449,22 @@ for (const [team, odd] of Object.entries(odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`odd of ${teamStr} : ${odd}`);
 }
+*/
+
+// sets
+
+const orderSet = new Set(['pizza', 'pasta', 'pizza', 'Risotto', 'pasta']);
+
+console.log(orderSet.size);
+orderSet.add('garlic bread');
+orderSet.add('garlic bread');
+orderSet.delete('pizza');
+// orderSet.clear();
+console.log(orderSet);
+
+for (const order of orderSet) console.log(order);
+
+// Example
+const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
