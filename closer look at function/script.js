@@ -52,8 +52,8 @@ checkIN(flight, willson);
 console.log(flight);
 console.log(willson);
 */
-
-// Function accepting callback function
+/*
+//---------- Function accepting callback function----------------
 
 const oneword = function (str) {
   return str.replace(/ /g, '').toLowerCase();
@@ -77,3 +77,19 @@ const high5 = function () {
 };
 document.body.addEventListener('click', high5);
 ['willson', 'ghimire', 'dharam'].forEach(high5);
+*/
+
+// -----------Function returning function------------
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+const greeterHey = greet('hey');
+greeterHey('willson');
+
+greet('hey')('willson');
+
+// challange using arrow function
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('hey')('willson');
