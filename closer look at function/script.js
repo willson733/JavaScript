@@ -96,7 +96,7 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('hey')('willson');
 */
 
-// -------------The call and apply methods-----
+// -------------The call, apply and bind methods-----
 
 const lufthansa = {
   airlines: 'Lufthansa',
@@ -140,3 +140,22 @@ const flightsData = [344, 'james sor'];
 book.apply(buddhaAirlines, flightsData);
 
 book.call(buddhaAirlines, ...flightsData);
+
+// bind method
+
+const bookYA = book.bind(yetiAirlines);
+bookYA(33, 'joe smith');
+
+const bookYA23 = book.bind(yetiAirlines, 23);
+bookYA23('joe smith');
+
+// with eventlistner
+lufthansa.planes = 300;
+lufthansa.buyplane = function () {
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyplane.bind(lufthansa));
