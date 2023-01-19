@@ -30,3 +30,15 @@ console.log([...arr, ...arr2]);
 
 // join
 console.log(letter.join('-'));
+
+// at method
+const arr3 = [1, 2, 3, 4, 5];
+console.log(arr3[0]);
+console.log(arr3.at(0));
+
+console.log(arr3[arr3.length - 1]);
+console.log(arr3.slice(-1)[0]);
+console.log(arr3.at(-1));
+
+console.log('willson'.at(0));
+console.log('willson'.at(-1));
