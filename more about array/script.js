@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // slice(doesnot muted original array)
 let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
 console.log(arr.slice(2));
@@ -42,3 +42,23 @@ console.log(arr3.at(-1));
 
 console.log('willson'.at(0));
 console.log('willson'.at(-1));
+*/
+
+// forEach lopp over array
+const movements = [400, 300, -600, 450, 500, -800, -3000];
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}:You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdraw ${Math.abs(movement)}`);
+  }
+}
+
+console.log(`----forEach loop-----`);
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}:You deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdraw ${Math.abs(mov)}`);
+  }
+});
