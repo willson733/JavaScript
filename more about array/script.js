@@ -44,6 +44,7 @@ console.log('willson'.at(0));
 console.log('willson'.at(-1));
 */
 
+/*
 // forEach lopp over array
 const movements = [400, 300, -600, 450, 500, -800, -3000];
 for (const [i, movement] of movements.entries()) {
@@ -54,11 +55,27 @@ for (const [i, movement] of movements.entries()) {
   }
 }
 
-console.log(`----forEach loop-----`);
+console.log(`----forEach loop-----`); // break and continue doesnot work
 movements.forEach(function (mov, i, arr) {
   if (mov > 0) {
     console.log(`Movement ${i + 1}:You deposited ${mov}`);
   } else {
     console.log(`Movement ${i + 1}: You withdraw ${Math.abs(mov)}`);
   }
+});
+*/
+
+// forEach with maps and sets
+const curriencies = new Map([
+  ['USD', 'United state dollar'],
+  ['EUR', 'Euro'],
+  ['GPD', 'Pound streling'],
+]);
+curriencies.forEach(function (value, key, map) {
+  console.log(`${key}:${value}`);
+});
+
+const currienciesUniqie = new Set(['USD', 'EUR', 'USD', 'GPD', 'EUR']);
+currienciesUniqie.forEach(function (value, _, set) {
+  console.log(`${value}:${value}`);
 });
