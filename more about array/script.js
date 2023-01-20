@@ -64,7 +64,7 @@ movements.forEach(function (mov, i, arr) {
   }
 });
 */
-
+/*
 // forEach with maps and sets
 const curriencies = new Map([
   ['USD', 'United state dollar'],
@@ -79,3 +79,24 @@ const currienciesUniqie = new Set(['USD', 'EUR', 'USD', 'GPD', 'EUR']);
 currienciesUniqie.forEach(function (value, _, set) {
   console.log(`${value}:${value}`);
 });
+*/
+
+// -------------cooding challange ----------
+const juliasDog = [3, 5, 2, 12, 7];
+const kateDog = [4, 1, 15, 8, 3];
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  const copyJuliasDog = [...dogsJulia];
+  copyJuliasDog.splice(0, 1);
+  copyJuliasDog.splice(-2);
+  const dogs = copyJuliasDog.concat(dogsKate);
+  console.log(dogs);
+  dogs.forEach(function (val, i) {
+    if (val > 3) {
+      console.log(`Dog number ${i + 1} is an adult`);
+    } else {
+      console.log(`Dog number ${i + 1} is still puppy`);
+    }
+  });
+};
+checkDogs(juliasDog, kateDog);
