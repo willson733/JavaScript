@@ -193,7 +193,7 @@ const totalDepositeUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositeUSD);
 */
-
+/*
 // ---------------coding challange 3 --------------------------
 const calcAverageHumanAge = ages =>
   ages
@@ -204,3 +204,30 @@ const calcAverageHumanAge = ages =>
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 console.log(avg1, avg2);
+*/
+
+// --------- find, some and every  method-----------
+
+// find method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const firstWithdrawl = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawl);
+
+// some method
+
+// for equality
+console.log(movements.includes(-130));
+
+console.log(movements.some(mov => mov === -130));
+// for comparision
+const index = movements.some(mov => mov > 0);
+console.log(index);
+
+// every method
+console.log(movements.every(mov => mov > 0));
+
+// separate callback
+const deposite = mov => mov > 0;
+console.log(movements.some(deposite));
+console.log(movements.every(deposite));
