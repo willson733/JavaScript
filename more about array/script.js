@@ -125,7 +125,7 @@ const movementsDescription = movements.map(
 );
 console.log(movementsDescription);
 */
-
+/*
 // filter method
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const deposit = movements.filter(function (mov) {
@@ -141,3 +141,44 @@ const withdrewl = movements.filter(function (mov) {
   return mov < 0;
 });
 console.log(withdrewl);
+*/
+
+/*
+// reduced method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const balance = movements.reduce(function (acc, cur, i, arry) {
+//   console.log(`Iteration ${i}: acc=${acc}`);
+//   return acc + cur;
+// }, 0);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+// max number
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
+*/
+
+// ---------------coding challange----------------
+
+const calcAverageHumanAge = function (ages) {
+  const humanAge = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+  const adultHuman = humanAge.filter(age => age > 18);
+  console.log(humanAge);
+  console.log(adultHuman);
+  const average = adultHuman.reduce(
+    (acc, age) => acc + age / adultHuman.length,
+    0
+  );
+  return average;
+};
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1, avg2);
