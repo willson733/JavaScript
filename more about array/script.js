@@ -80,7 +80,7 @@ currienciesUniqie.forEach(function (value, _, set) {
   console.log(`${value}:${value}`);
 });
 */
-
+/*
 // -------------cooding challange ----------
 const juliasDog = [3, 5, 2, 12, 7];
 const kateDog = [4, 1, 15, 8, 3];
@@ -100,3 +100,28 @@ const checkDogs = function (dogsJulia, dogsKate) {
   });
 };
 checkDogs(juliasDog, kateDog);
+*/
+
+// map method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const usd = 1.1;
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * usd;
+const movementsUSD = movements.map(mov => mov * usd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementUSDFor = [];
+for (const mov of movements) movementUSDFor.push(mov * usd);
+console.log(movementUSDFor);
+
+const movementsDescription = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}:You ${mov > 0 ? 'deposite' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescription);
+
+fi;
