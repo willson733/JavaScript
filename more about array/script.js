@@ -81,7 +81,7 @@ currienciesUniqie.forEach(function (value, _, set) {
 });
 */
 /*
-// -------------cooding challange ----------
+// -------------cooding challange 1 ----------
 const juliasDog = [3, 5, 2, 12, 7];
 const kateDog = [4, 1, 15, 8, 3];
 
@@ -165,8 +165,8 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 console.log(max);
 */
-
-// ---------------coding challange----------------
+/*
+// ---------------coding challange 2----------------
 
 const calcAverageHumanAge = function (ages) {
   const humanAge = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
@@ -179,6 +179,28 @@ const calcAverageHumanAge = function (ages) {
   );
   return average;
 };
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1, avg2);
+*/
+/*
+// magic of chaining method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const euroToUSD = 1.1;
+const totalDepositeUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * euroToUSD)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositeUSD);
+*/
+
+// ---------------coding challange 3 --------------------------
+const calcAverageHumanAge = ages =>
+  ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(human => human > 18)
+    .reduce((acc, humanadult, i, arr) => acc + humanadult / arr.length, 0);
+
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 console.log(avg1, avg2);
