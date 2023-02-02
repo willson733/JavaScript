@@ -194,6 +194,7 @@ willson.introduce();
 willson.calcAge();
 */
 
+/*
 // ----------coding challange 3 --------------
 const Car = function (make, speed) {
   this.make = make;
@@ -232,3 +233,75 @@ Tesla.chargeBattery(110);
 console.log(Tesla);
 Tesla.accelerate();
 Tesla.brake();
+*/
+
+/*
+// Inheritance between classes ES6 classes
+
+class Personcl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+
+  get age() {
+    return 2023 - this.birthYear;
+  }
+  set fullName(name) {
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
+}
+
+class StudentCl extends Personcl {
+  constructor(fullName, birthYear, courses) {
+    super(fullName, birthYear);
+    this.courses = courses;
+  }
+  introduction() {
+    console.log(`I'm ${this.fullName} and I study ${this.courses}`);
+  }
+  calcAge() {
+    console.log(
+      `I'm currently ${
+        2023 - this.birthYear
+      } old but as a student i feel moer like ${2023 - this.birthYear + 10}`
+    );  
+  }
+}
+const willson = new StudentCl("willson ghimire", 2000, "computer engineering");
+willson.calcAge();
+willson.introduction();
+*/
+
+// Inheritance between class : Object.creat
+
+const PersonProto = {
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, courses) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.courses = courses;
+};
+StudentProto.introduction = function () {
+  console.log(`I'm ${this.firstName} ani i study ${this.courses}`);
+};
+const willson = Object.create(StudentProto);
+willson.init("willson", 2000, "computer engineering");
+willson.calcAge();
+willson.introduction();
