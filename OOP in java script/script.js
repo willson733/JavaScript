@@ -308,6 +308,7 @@ willson.calcAge();
 willson.introduction();
 */
 
+/*
 // another class example
 
 // 1) Public field
@@ -337,15 +338,18 @@ class Account {
   }
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
     if (this._loanApproved(val)) {
       this.deposit(val);
       console.log(`Loan request is sucessfull ${this.owner}`);
+      return this;
     }
   }
   // private method
@@ -365,3 +369,65 @@ console.log(acc1);
 console.log(acc1.getMovements());
 // console.log(acc1.#pin);
 // console.log(acc1._loanApproved(188));
+
+// chaining
+acc1.deposit(223).withdraw(111).deposit(1000).requestLoan(2000).withdraw(2000);
+console.log(acc1.getMovements());
+*/
+
+// -----------coding challange 4-----------
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/hr`);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/hr`);
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EvCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `${this.make} is going at ${this.speed} km/hr, wirh a chrge of ${
+        this.#charge
+      }`
+    );
+    return this;
+  }
+}
+
+const rivian = new EvCl("Rivian", 120, 23);
+
+rivian
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .brake()
+  .chargeBattery(50)
+  .accelerate();
+console.log(rivian);
