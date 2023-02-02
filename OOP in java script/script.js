@@ -45,6 +45,7 @@ console.log(willson.hasOwnProperty("firstName"));
 console.log(willson.hasOwnProperty("species"));
 */
 
+/*
 // ---------coding challange 1 --------
 const Car = function (make, speed) {
   this.make = make;
@@ -67,3 +68,68 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.brake();
 bmw.brake();
+
+*/
+
+/*
+// ES6 class
+// class expression
+// const PersonCl=class(){}
+
+// class deceleration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+  greet() {
+    console.log(`hey ${this.firstName}`);
+  }
+
+  // static method
+  static hey() {
+    console.log(`hey there`);
+  }
+}
+
+const willson = new PersonCl("willson", 2000);
+console.log(willson);
+willson.calcAge();
+
+// PersonCl.prototype.greet = function () {
+//   console.log(` Hey ${this.firstName}`);
+// };
+willson.greet();
+
+// 1.Classes are NOT hoisted
+// 2.Classes are first-class citizes
+// 3.Classes are executed in strict mode
+PersonCl.hey();
+*/
+
+// Object created
+
+const PersonProto = {
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const willson = Object.create(PersonProto);
+willson.firstName = "willson";
+willson.birthYear = 2000;
+willson.calcAge();
+
+console.log(willson.__proto__);
+
+const saraha = Object.create(PersonProto);
+saraha.init("saraha", 2002);
+saraha.calcAge();
