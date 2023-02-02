@@ -281,6 +281,7 @@ willson.calcAge();
 willson.introduction();
 */
 
+/*
 // Inheritance between class : Object.creat
 
 const PersonProto = {
@@ -305,3 +306,62 @@ const willson = Object.create(StudentProto);
 willson.init("willson", 2000, "computer engineering");
 willson.calcAge();
 willson.introduction();
+*/
+
+// another class example
+
+// 1) Public field
+// 2) Private field
+// 3) Public Method
+// 4) Private Method
+class Account {
+  // Public field
+  locale = navigator.language;
+  // Private field
+  #movements = [];
+  #pin;
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    //   Protected property
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
+    console.log("YOur Account has been open sucessfully");
+  }
+
+  // Public methods
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+  deposit(val) {
+    this.#movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  requestLoan(val) {
+    if (this._loanApproved(val)) {
+      this.deposit(val);
+      console.log(`Loan request is sucessfull ${this.owner}`);
+    }
+  }
+  // private method
+  //   #loanApprove(val) {
+  _loanApproved(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account("willson", "NPR", 1111);
+// acc1.movements.push(299);
+// acc1.movements.push(-233);
+acc1.deposit(299);
+acc1.withdraw(233);
+acc1.requestLoan(100);
+console.log(acc1);
+console.log(acc1.getMovements());
+// console.log(acc1.#pin);
+// console.log(acc1._loanApproved(188));
